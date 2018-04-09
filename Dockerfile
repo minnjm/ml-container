@@ -33,14 +33,12 @@ RUN pip3 --no-cache-dir install --upgrade \
 # Open Ports for Jupyter
 EXPOSE 8888
 
-#Setup File System
+# Setup File System
 RUN mkdir ds
 ENV HOME=/ds
 ENV SHELL=/bin/bash
 VOLUME /ds
 WORKDIR /ds
-ADD run_jupyter.sh /ds/run_jupyter.sh
-RUN chmod +x /ds/run_jupyter.sh
 
-# Run the shell
-CMD  ["./run_jupyter.sh"]
+# Run jupyter in the container
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--no-browser", "--NotebookApp.token=''"]
