@@ -15,6 +15,7 @@ RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificate
     python-setuptools \
     python-virtualenv \
     unzip \
+    vim \
     && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/*
